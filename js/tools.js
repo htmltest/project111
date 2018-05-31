@@ -14,64 +14,6 @@ $(document).ready(function() {
         initForm($(this));
     });
 
-    $('.menu-add-link').click(function(e) {
-        var curPadding = $('.wrapper').width();
-        $('.menu-add').toggleClass('open');
-        $('html').toggleClass('open-menu-add');
-        if ($('.menu-add').hasClass('open')) {
-            curPadding = $('.wrapper').width() - curPadding;
-            $('body').css({'padding-right': curPadding});
-        } else {
-            $('body').css({'padding-right': 0});
-        }
-
-        $('.menu-add').removeClass('open-sections');
-        $('.menu-add-sections > ul > li.open').removeClass('open');
-        e.preventDefault();
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.menu-add').length == 0) {
-            $('.menu-add').removeClass('open');
-            $('html').removeClass('open-menu-add');
-            $('.menu-add').removeClass('open-sections');
-            $('.menu-add-sections > ul > li.open').removeClass('open');
-            $('body').css({'padding-right': 0});
-        }
-    });
-
-    $('.header-search-link').click(function(e) {
-        $('.header-search').toggleClass('open');
-        if ($('.header-search').hasClass('open')) {
-            $('.header-search .form-input input').focus();
-        }
-        e.preventDefault();
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.header-search').length == 0) {
-            $('.header-search').removeClass('open');
-        }
-    });
-
-    $('.header-cart-window-hide').click(function(e) {
-        $('.header-cart').removeClass('open');
-        e.preventDefault();
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.header-cart').length == 0) {
-            $('.header-cart').removeClass('open');
-        }
-    });
-
-    $('.header-cart-value').click(function(e) {
-        if ($(window).width() < 1200) {
-            $('.header-cart').toggleClass('open');
-            e.preventDefault();
-        }
-    });
-
     $('.side-menu > ul > li').each(function() {
         var curLi = $(this);
         if (curLi.find('ul').length > 0) {
@@ -85,17 +27,6 @@ $(document).ready(function() {
             curLi.toggleClass('open closed');
             curLi.find('ul').slideToggle(100);
             e.preventDefault();
-        }
-    });
-
-    $('.catalogue-sort-link').click(function(e) {
-        $('.catalogue-sort').toggleClass('open');
-        e.preventDefault();
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.catalogue-sort').length == 0) {
-            $('.catalogue-sort').removeClass('open');
         }
     });
 
@@ -157,11 +88,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('.catalogue-text-more a').click(function(e) {
-        $(this).parent().prev().toggleClass('open');
-        e.preventDefault();
-    });
-
     $('.product-photo-preview ul li a').click(function(e) {
         var curLink = $(this);
         var curLi = curLink.parent();
@@ -183,41 +109,6 @@ $(document).ready(function() {
     $('.product-order .btn-reset').click(function(e) {
         windowOpen($(this).attr('href'));
         e.preventDefault();
-    });
-
-    $('.product-link-compare > a').click(function(e) {
-        $(this).parent().toggleClass('active');
-        e.preventDefault();
-    });
-
-    $('.product-link-delivery').click(function(e) {
-        var curLink = $(this);
-        $.ajax({
-            url: curLink.attr('href'),
-            dataType: 'html',
-            cache: false
-        }).done(function(html) {
-            if ($('.product-links-window').length > 0) {
-                $('.product-links-window').remove();
-            }
-            $('.product-links').append('<div class="product-links-window">' + html + '<a href="#" class="product-links-window-close"></a></div>');
-            $('.product-links-window-scroll').jScrollPane({
-                autoReinitialise: true
-            });
-
-            $('.product-links-window-close').click(function(e) {
-                $('.product-links-window').remove();
-                e.preventDefault();
-            });
-
-        });
-        e.preventDefault();
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.product-links').length == 0) {
-            $('.product-links-window').remove();
-        }
     });
 
     $('.product-tabs-menu li a').click(function(e) {
@@ -345,74 +236,6 @@ $(document).ready(function() {
         thumbs : false
     });
 
-    $('.brands-list-inner').slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        prevArrow: '<button type="button" class="slick-prev"></button>',
-        nextArrow: '<button type="button" class="slick-next"></button>',
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            }
-        ]
-    });
-
-    $('.responses-item a').fancybox({
-        baseTpl	: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
-            '<div class="fancybox-bg"></div>' +
-            '<div class="fancybox-controls">' +
-                '<div class="fancybox-infobar">' +
-                    '<button data-fancybox-previous class="fancybox-button fancybox-button--left" title="Предыдущая"></button>' +
-                    '<div class="fancybox-infobar__body">' +
-                        '<span class="js-fancybox-index"></span>&nbsp;/&nbsp;<span class="js-fancybox-count"></span>' +
-                    '</div>' +
-                    '<button data-fancybox-next class="fancybox-button fancybox-button--right" title="Следующая"></button>' +
-                '</div>' +
-                '<div class="fancybox-buttons">' +
-                    '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="Закрыть (Esc)"></button>' +
-                '</div>' +
-            '</div>' +
-            '<div class="fancybox-slider-wrap">' +
-                '<div class="fancybox-slider"></div>' +
-            '</div>' +
-            '<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div></div>' +
-        '</div>',
-        slideShow : false,
-        fullScreen : false,
-        thumbs : false
-    });
-
-    $('.responses-list').slick({
-        infinite: false,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        dots: true,
-        prevArrow: '<button type="button" class="slick-prev"></button>',
-        nextArrow: '<button type="button" class="slick-next"></button>',
-        adaptiveHeight: true,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
     $('#changeDelivery').change(function(e) {
         var curValue = $(this).val();
         $('.order-delivery-item.active').removeClass('active');
@@ -420,23 +243,15 @@ $(document).ready(function() {
         recalcCart();
     });
 
-    $('.order-comment-link a').click(function(e) {
-        $('.order-comment-link').hide();
-        $('.order-comment').css({'display': 'block'});
-        e.preventDefault();
-    });
-
     $('.basket-row-count input').on('spinstop', function(event, ui) {
         recalcCart();
     });
 
-    /*
     $('.basket-delete a').click(function(e) {
         $(this).parents().filter('.basket-row').remove();
         recalcCart();
         e.preventDefault();
     });
-    */
 
     $('.compare-list').slick({
         infinite: false,
@@ -506,144 +321,10 @@ $(document).ready(function() {
         });
     });
 
-    $('.catalogue-filter-mobile-link').click(function(e) {
-        $('html').toggleClass('filter-open');
-        $(window).scrollTop(0);
-        e.preventDefault();
-    });
-
-    $('.catalogue-header h1').click(function(e) {
-        if ($('.side-menu').length > 0) {
-            $('html').toggleClass('side-menu-open');
-            $(window).scrollTop(0);
-        }
-    });
-
-    $('.side-menu-mobile-link').click(function(e) {
-        $('html').removeClass('side-menu-open');
-        e.preventDefault();
-    });
-
-    $('.faq-form-show a').click(function(e) {
-        $('.faq-form-show').hide();
-        $('.faq-form').show();
-        e.preventDefault();
-    });
-
-    $('.faq-form-hide a').click(function(e) {
-        $('.faq-form-show').show();
-        $('.faq-form').hide();
-        e.preventDefault();
-    });
-
-    $('.basket-order-link-mobile a').click(function(e) {
-        $('.checkout').addClass('step-2');
-        $('html, body').animate({scrollTop: $('.checkout').offset().top});
-        e.preventDefault();
-    });
-
-    $('.checkout-step-1').click(function(e) {
-        $('.checkout').removeClass('step-2');
-        e.preventDefault();
-    });
-
-    $('.checkout-step-2').click(function(e) {
-        $('.checkout').addClass('step-2');
-        e.preventDefault();
-    });
-
     $('.bx_filter_input_checkbox input').change(function() {
         var curField = $(this).parent();
         $('.bx_filter_input_checkbox.focus').removeClass('focus');
         curField.addClass('focus');
-    });
-
-    $('.menu-add-main li.menu-add-main-link a').click(function(e) {
-        if ($(window).width() < 1200) {
-            $('.menu-add').toggleClass('open-sections');
-            $('.menu-add-sections > ul > li.open').removeClass('open');
-            e.preventDefault();
-        }
-    });
-
-    if ($(window).width() >= 1200) {
-        var timerSections = null;
-
-        $('.menu-add-main li.menu-add-main-link a').mouseover(function(e) {
-            window.clearTimeout(timerSections);
-            timerSections = null;
-            $('.menu-add').addClass('open-sections');
-        });
-
-        $('.menu-add-main li.menu-add-main-link a').mouseout(function(e) {
-            window.clearTimeout(timerSections);
-            timerSections = null;
-            timerSections = window.setTimeout(function() {
-                $('.menu-add').removeClass('open-sections');
-            }, 100);
-        });
-
-        $('.menu-add-sections').mouseover(function(e) {
-            window.clearTimeout(timerSections);
-            timerSections = null;
-        });
-
-        $('.menu-add-sections').mouseout(function(e) {
-            window.clearTimeout(timerSections);
-            timerSections = null;
-            timerSections = window.setTimeout(function() {
-                $('.menu-add').removeClass('open-sections');
-            }, 100);
-        });
-    }
-
-    $('.menu-add-sections > ul > li > a').click(function(e) {
-        if ($(window).width() < 1200) {
-            var curLi = $(this).parent();
-            if (curLi.hasClass('open')) {
-                curLi.removeClass('open');
-            } else {
-                $('.menu-add-sections > ul > li.open').removeClass('open');
-                curLi.addClass('open');
-            }
-            e.preventDefault();
-        }
-    });
-
-    if ($(window).width() >= 1200) {
-        $('.menu-add-sections > ul > li').mouseover(function(e) {
-            var curLi = $(this);
-            $('.menu-add-sections > ul > li.open').removeClass('open');
-            curLi.addClass('open');
-        });
-
-        $('.menu-add-sections > ul > li').mouseout(function(e) {
-            var curLi = $(this);
-            curLi.removeClass('open');
-        });
-    }
-
-    $('.menu-add-section-close').click(function(e) {
-        $('.menu-add-sections > ul > li.open').removeClass('open');
-        e.preventDefault();
-    });
-
-    $('.menu-add-catalogue').jScrollPane({
-        autoReinitialise: true
-    });
-
-    $('.menu-add-section-close-mobile').click(function(e) {
-        $('.menu-add').removeClass('open-sections');
-        e.preventDefault();
-    });
-
-    if ($('.checkout').length > 0) {
-        initOrderDates();
-    }
-
-    $('.up-link').click(function(e) {
-        $('html, body').animate({scrollTop: 0});
-        e.preventDefault();
     });
 
 });
@@ -669,22 +350,12 @@ function recalcCart() {
         }
     }
 
-    var curDays = Number($('#rentDays').val());
-    if (curDays > 1) {
-        curDays = 1 + (curDays - 1) * .5;
-    }
-
-    $('#basket-price').html(String(curSumm * curDays).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
+    $('#basket-price').html(String(curSumm).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
     $('#basket-delivery').html(String(curDeliveryPrice).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
     var allSumm = curSumm + curDeliveryPrice + Number($('#basket-discount').html().replace(' ', ''));
-    if ($('#basket-coupon-value').length > 0) {
-        $('#basket-coupon-summ').html(String(-Math.round(allSumm * (Number($('#basket-coupon-value').html() / 100)))).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
-        allSumm += Number($('#basket-coupon-summ').html().replace(' ', ''));
-    }
     if (allSumm < 0) {
         allSumm = 0;
     }
-    allSumm = (curSumm * curDays) + curDeliveryPrice + Number($('#basket-discount').html().replace(' ', '')) + Number($('#basket-coupon-summ').html().replace(' ', ''));
     $('#basket-summ').html(String(allSumm).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
 }
 
@@ -696,14 +367,6 @@ $(window).on('resize', function() {
 $(window).on('load resize', function() {
     $('.catalogue-list').each(function() {
         resizeCatalogue($(this));
-    });
-
-    $('.catalogue-text-wrap').each(function() {
-        var curBlock = $(this);
-        curBlock.removeClass('hidden open');
-        if (curBlock.height() < curBlock.find('.catalogue-text-inner').height()) {
-            curBlock.addClass('hidden');
-        }
     });
 
     $('.product-photo-big-inner').css({'line-height': $('.product-photo-big-inner a').height() + 'px'});
@@ -997,118 +660,4 @@ function resizeCatalogue(curList) {
         });
     });
 
-}
-
-var dateFormat = 'dd M yy';
-
-function initOrderDates() {
-    $('#rentDateBegin').datepicker({
-        dateFormat: dateFormat,
-        minDate: 1
-    }).on('change', function() {
-        var curDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        var minDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        minDate.setDate(minDate.getDate() + 1);
-        curDate.setDate(curDate.getDate() + Number($('#rentDays').val()) - 1);
-
-        $('#rentDateEnd').datepicker('option', 'minDate', minDate);
-        $('#rentDateEnd').datepicker('setDate', curDate);
-
-        var prevDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        prevDate.setDate(prevDate.getDate() - 1);
-        $('#rentDatePrev').html(formatDate(prevDate));
-        if ($('#rentDays').val() > 1) {
-            var nextDate = new Date($('#rentDateEnd').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        } else {
-            var nextDate = new Date($('#rentDateBegin').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        }
-        $('#rentDateNext').html(formatDate(nextDate));
-
-        recalcCart();
-    });
-    $('#rentDateBegin').datepicker('setDate', new Date());
-
-    $('#rentDateEnd').datepicker({
-        dateFormat: dateFormat,
-        minDate: 2
-    }).on('change', function() {
-        var endDate = new Date($('#rentDateEnd').datepicker('getDate'));
-        var beginDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        var countDays = Math.round((endDate - beginDate) / (1000 * 60 * 60 * 24)) + 1;
-        $('#rentDays').val(countDays);
-
-        var prevDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        prevDate.setDate(prevDate.getDate() - 1);
-        $('#rentDatePrev').html(formatDate(prevDate));
-        if ($('#rentDays').val() > 1) {
-            var nextDate = new Date($('#rentDateEnd').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        } else {
-            var nextDate = new Date($('#rentDateBegin').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        }
-        $('#rentDateNext').html(formatDate(nextDate));
-
-        recalcCart();
-    });
-
-    if ($('#rentDays').val() > 1) {
-        $('#fieldDateEnd').show();
-        $('#fieldDateBeginLabel').show();
-    } else {
-        $('#fieldDateEnd').hide();
-        $('#fieldDateBeginLabel').hide();
-    }
-    var prevDate = new Date($('#rentDateBegin').datepicker('getDate'));
-    prevDate.setDate(prevDate.getDate() - 1);
-    $('#rentDatePrev').html(formatDate(prevDate));
-    if ($('#rentDays').val() > 1) {
-        var nextDate = new Date($('#rentDateEnd').datepicker('getDate'));
-        nextDate.setDate(nextDate.getDate() + 1);
-    } else {
-        var nextDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        nextDate.setDate(nextDate.getDate() + 1);
-    }
-    $('#rentDateNext').html(formatDate(nextDate));
-
-    function formatDate(date) {
-        var dd = date.getDate();
-        if (dd < 10) dd = '0' + dd;
-        var mm = date.getMonth() + 1;
-        if (mm < 10) mm = '0' + mm;
-        var yy = date.getFullYear();
-        return dd + '.' + mm + '.' + yy;
-    }
-
-    recalcCart();
-
-    $('#rentDays').on('spinstop', function(event, ui) {
-        if ($('#rentDays').val() > 1) {
-            $('#fieldDateEnd').show();
-            $('#fieldDateBeginLabel').show();
-        } else {
-            $('#fieldDateEnd').hide();
-            $('#fieldDateBeginLabel').hide();
-        }
-
-        var curDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        curDate.setDate(curDate.getDate() + Number($('#rentDays').val()) - 1);
-        $('#rentDateEnd').datepicker('setDate', curDate);
-
-        var prevDate = new Date($('#rentDateBegin').datepicker('getDate'));
-        prevDate.setDate(prevDate.getDate() - 1);
-        $('#rentDatePrev').html(formatDate(prevDate));
-        if ($('#rentDays').val() > 1) {
-            var nextDate = new Date($('#rentDateEnd').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        } else {
-            var nextDate = new Date($('#rentDateBegin').datepicker('getDate'));
-            nextDate.setDate(nextDate.getDate() + 1);
-        }
-        $('#rentDateNext').html(formatDate(nextDate));
-
-        recalcCart();
-    });
 }
