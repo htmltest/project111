@@ -1,0 +1,42 @@
+<div class="fast-window">
+    <h3>Заказать в один клик</h3>
+    <div class="basket">
+        <div class="basket-row">
+            <div class="basket-photo"><a href="#"><img src="files/fast.jpg" alt="" /></a></div>
+            <div class="basket-text">
+                <div class="basket-title"><a href="#">Фильтр TITANOF (МАЛЫШ) — 250 л/час</a></div>
+                <div class="basket-art">Артикул: 1532645</div>
+            </div>
+            <div class="basket-row-price">
+                15 500 Р
+                <div class="basket-row-count-text">1 шт.</div>
+            </div>
+        </div>
+    </div>
+    <form action="windows/success.html" method="post" class="window-form">
+        <div class="form-row fast-window-count">
+            <div class="form-label">количество</div>
+            <div class="form-field">
+                <div class="form-input"><input type="number" name="count" value="1" step="1" min="1" /></div>
+             </div>
+        </div>
+        <div class="form-row fast-window-phone">
+            <div class="form-label">Телефон</div>
+            <div class="form-field">
+                <div class="form-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
+             </div>
+        </div>
+        <div class="form-row fast-window-email">
+            <div class="form-label">email <span>/ опционально</span></div>
+            <div class="form-field">
+                <div class="form-input"><input type="text" name="email" value="" class="email" /></div>
+            </div>
+        </div>
+        <div class="form-row fast-window-private">
+            <div class="form-checkbox">
+                <label><input type="checkbox" name="private" checked="checked" class="required" /><span></span><strong>Я принимаю условия <a href="#" class="target">Публичной оферты</a><br /> и <a href="#" class="target">Политики конфеденциальности</a></strong></label>
+            </div>
+        </div>
+        <div class="form-submit"><input type="submit" value="Заказать" class="btn-submit" /></div>
+    </form>
+</div>
