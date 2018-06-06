@@ -321,10 +321,62 @@ $(document).ready(function() {
         });
     });
 
-    $('.bx_filter_input_checkbox input').change(function() {
+    $('body').on('change', '.bx_filter_input_checkbox input', function() {
         var curField = $(this).parent();
         $('.bx_filter_input_checkbox.focus').removeClass('focus');
         curField.addClass('focus');
+    });
+
+    $('body').on('change', '.bx_filter_count_block input', function() {
+        var curField = $(this);
+        var curBlock = curField.parents().filter('.bx_filter_count_block');
+        var curIndex = curBlock.find('input').index(curField);
+        if (curField.prop('checked')) {
+            curBlock.find('input:lt(' + curIndex +')').prop('checked', true);
+            curBlock.find('input:gt(' + curIndex +')').prop('checked', false);
+        } else {
+            if (curBlock.find('input:gt(' + curIndex +'):checked').length == 0) {
+                curBlock.find('input:lt(' + curIndex +')').prop('checked', false);
+            } else {
+                curField.prop('checked', true);
+                curBlock.find('input:gt(' + curIndex +')').prop('checked', false);
+            }
+        }
+    });
+
+    $('.examples-item a').fancybox({
+        baseTpl	: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+            '<div class="fancybox-bg"></div>' +
+            '<div class="fancybox-controls">' +
+                '<div class="fancybox-infobar">' +
+                    '<button data-fancybox-previous class="fancybox-button fancybox-button--left" title="Предыдущая"></button>' +
+                    '<div class="fancybox-infobar__body">' +
+                        '<span class="js-fancybox-index"></span>&nbsp;/&nbsp;<span class="js-fancybox-count"></span>' +
+                    '</div>' +
+                    '<button data-fancybox-next class="fancybox-button fancybox-button--right" title="Следующая"></button>' +
+                '</div>' +
+                '<div class="fancybox-buttons">' +
+                    '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="Закрыть (Esc)"></button>' +
+                '</div>' +
+            '</div>' +
+            '<div class="fancybox-slider-wrap">' +
+                '<div class="fancybox-slider"></div>' +
+            '</div>' +
+            '<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div></div>' +
+        '</div>',
+        slideShow : false,
+        fullScreen : false,
+        thumbs : false
+    });
+
+    $('.examples-slider').slick({
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        dots: false,
+        adaptiveHeight: true
     });
 
 });

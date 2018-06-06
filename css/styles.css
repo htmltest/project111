@@ -34,6 +34,7 @@ ol li::before {content:counter(point)'.'; counter-increment:point 1; position:ab
 li ol li::before {content:counter(point)'.'counter(subpoint); counter-increment:subpoint 1}
 hr {height:1px; width:100%; margin:50px 0; padding:0; border:none; background:#e6e6e6}
 blockquote {font-size:20px; line-height:25px; padding:5px 0 10px 27px; border-left:4px solid #ea1c23; margin:40px 0 60px 0}
+sup {vertical-align:top; font-size:10px; position:relative; top:-3px}
 .wrapper table {width:100%; margin:40px 0 60px 0; border-collapse:collapse}
 .wrapper th {vertical-align:top; text-align:left; font-weight:normal; font-size:11px; line-height:25px; text-transform:uppercase; padding:0 0 2px 30px; color:#898989}
 .wrapper th:first-child {padding-left:0}
@@ -71,6 +72,8 @@ blockquote {font-size:20px; line-height:25px; padding:5px 0 10px 27px; border-le
 .form-field .cols {margin-top:0; margin-bottom:0}
 .cols::after {content:""; display:block; clear:both}
 .col-half {width:50%; float:left; padding:0 15px; box-sizing:border-box}
+.cols-stick .col-half:nth-child(1) {padding-right:0}
+.cols-stick .col-half:nth-child(2) {padding-left:0}
 .col-third {width:33.33%; float:left; padding:0 15px; box-sizing:border-box}
 .col-quarter {width:25%; float:left; padding:0 15px; box-sizing:border-box}
 
@@ -225,12 +228,12 @@ nav {height:49px; background:#ed1b23; transition:background 0.3s; border-bottom:
 .nav-fixed nav {height:39px; position:fixed; z-index:990; left:0; top:0; right:0; background:rgba(237, 27, 35, 0.9); border-bottom:none}
 
 nav ul {margin:0; padding:0; text-transform:uppercase; font-weight:bold; font-family:CenturyGothicBold, sans-serif}
-nav ul li {float:left; margin:0 0 0 57px; padding:0; position:relative}
-nav ul li:first-child {margin:0}
+nav ul li {float:left; margin:0 0 0 17px; padding:0; position:relative}
+nav ul li:first-child {margin:0 0 0 -20px}
 nav ul li::before {display:none}
-nav ul li a {display:block; color:#fff; text-decoration:none; line-height:49px; transition:all 0.3s}
+nav ul li a {display:block; color:#fff; text-decoration:none; line-height:49px; transition:all 0.3s; padding:0 20px}
 .nav-fixed nav ul li a {line-height:39px}
-nav ul li a:hover {color:#fff; text-decoration:underline}
+nav ul li a:hover {color:#ed1b23; background:#fff}
 
 .breadcrumbs {font-size:11px; text-transform:uppercase; padding:23px 0 0 0; color:#868686}
 .breadcrumbs span {font:12px/25px Arial, Helvertica, sans-serif; margin:0 7px}
@@ -270,7 +273,6 @@ nav ul li a:hover {color:#fff; text-decoration:underline}
 .main-banners-item-text ul {margin:8px 0}
 .main-banners-item-text ul li {margin:8px 0; padding:0 0 0 20px}
 .main-banners-item-text ul li::before {content:"—"; display:inline; width:auto; height:auto; background:none; left:0; top:0; border-radius:0}
-.main-banners-item-text sup {vertical-align:top; font-size:10px; position:relative; top:-3px}
 .main-banners-item-link {position:absolute; left:30px; bottom:30px}
 .main-banners-item-01 .main-banners-item-link {width:191px}
 .main-banners-item-03 .main-banners-item-link {width:237px}
@@ -404,6 +406,13 @@ nav ul li a:hover {color:#fff; text-decoration:underline}
 .bx_filter .bx_filter_input_checkbox:hover .bx_filter_param_text::before {border-color:#ea1c23}
 .bx_filter .bx_filter_input_checkbox input:checked+.bx_filter_param_text {color:#fff; background:#ea1c23; border-radius:2px}
 .bx_filter .bx_filter_input_checkbox input:checked+.bx_filter_param_text::before {background-position:center; border-color:#ea1c23}
+
+.bx_filter .bx_filter_popup_result {left:100%; margin-left:-33px}
+.bx_filter .bx_filter_popup_result {padding-left:6px; padding-right:104px; background:url(../images/result_popup_right.png)}
+.bx_filter .bx_filter_popup_result {color:#898989; display:block; font-size:13px; text-align:center; width:270px; height:51px; box-sizing:border-box; line-height:37px; padding:6px 97px 0 0; top:0; position:absolute; white-space:nowrap; z-index:10}
+.bx_filter .bx_filter_popup_result br {display:none}
+.bx_filter .bx_filter_popup_result a {display:block; position:absolute; right:7px; top:6px; width:97px; height:37px; font-size:12px; line-height:37px; color:#fff; text-transform:uppercase; background:#000; text-align:center; text-decoration:none; transition:background-color .3s ease}
+.bx_filter .bx_filter_popup_result a:hover {background:#ea1c23}
 
 .bx_filter_button_box {border-top:1px solid #f0f0f0; padding:30px}
 
@@ -660,59 +669,26 @@ input:checked+.bx_filter_param_label.dib .bx_filter_btn_color_icon {opacity:1; -
 .doc-title a {color:#bc4f4b}
 .doc-size {font-size:13px; color:#686868; padding:13px 0 0 0; text-transform:uppercase}
 
-.responses {background:#f6f6f6; padding:99px 0 101px 0}
-.responses h3 {text-align:center; margin:0}
-.responses-list {margin:0 -15px; position:relative}
-.responses-list::before {content:""; display:block; width:9999px; position:absolute; z-index:9; right:100%; margin-right:15px; top:0; bottom:0; background:#f6f6f6}
-.responses-list::after {content:""; display:block; width:9999px; position:absolute; z-index:9; left:100%; margin-left:15px; top:0; bottom:0; background:#f6f6f6}
-.responses-list .slick-list {overflow:visible}
-.responses-item {float:left; width:33.33%; padding:51px 15px 0 15px; box-sizing:border-box}
-.responses-item a {display:block; height:500px; text-align:center; line-height:500px; position:relative; width:100%; background:#fff}
-.responses-item a::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; transition:all .3s ease}
-.responses-item a:hover::before {box-shadow:0 7px 30px rgba(0, 0, 0, .15)}
-.responses-item a::after {content:""; display:block; width:48px; height:48px; position:absolute; right:0; top:0; background:url(../images/zoom-2.png)}
-.responses-item a:hover::after {background-position:left -48px}
-.responses-item a img {display:inline-block !important; vertical-align:middle; max-width:100%; max-height:100%}
-.responses-item-title {text-align:center; font-size:12px; line-height:20px; letter-spacing:0; padding:27px 0 0 0; position:relative}
-.responses-item-title::before {content:""; display:block; position:absolute; left:50%; top:0; margin:0 0 0 -10px; width:0; height:0; border-top:10px solid #fff; border-left:10px solid transparent; border-right:10px solid transparent}
-.responses-item-title strong {display:block; font-size:15px; font-weight:bold; color:#000}
-.responses .slick-dots {text-align:center; font-size:0; line-height:0; letter-spacing:-1px; margin:0; padding:53px 0 0 0}
-.responses .slick-dots li {margin:0 0 0 5px; padding:0; display:inline-block; vertical-align:top}
-.responses .slick-dots li::before {display:none}
-.responses .slick-dots li:first-child {margin:0}
-.responses .slick-dots li button {display:block; width:47px; height:3px; border-radius:0; border:none; background:#e6e6e6; margin:0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; font-size:0; line-height:0; text-indent:100px}
-.responses .slick-dots li.slick-active button {background:#ea1c23}
-.responses .slick-prev,
-.responses .slick-next {display:block; position:absolute; z-index:10; top:266px; width:70px; height:70px; border:none; border-radius:50%; background:#fff; margin:0; padding:0; -webkit-appearance:none; cursor:pointer}
-.responses .slick-prev {right:50%; margin-right:660px}
-.responses .slick-next {left:50%; margin-left:660px}
-.responses .slick-prev:hover,
-.responses .slick-next:hover {background:#ea1c23}
-.responses .slick-prev::before,
-.responses .slick-next::before {content:""; display:block; width:14px; height:25px; background:url(../images/arrows.png); position:absolute; left:50%; top:50%; margin:-12px 0 0 -7px}
-.responses .slick-prev:hover::before {background-position:left -25px}
-.responses .slick-next::before {background-position:-14px top}
-.responses .slick-next:hover::before {background-position:-14px -25px}
+.examples {margin:0 -15px; font-size:0; line-height:0; letter-spacing:-1px}
+h2+.examples {margin-top:-30px}
+.examples-item {display:inline-block; vertical-align:top; width:33.33%; padding:30px 15px 15px 15px; box-sizing:border-box}
+.examples-item a {display:block; color:#000; text-decoration:none; top:0; position:relative; transition:all 0.2s}
+.examples-item a:hover {top:-5px}
+.examples-item-preview {position:relative; transition:all 0.2s}
+.examples-item a:hover .examples-item-preview {box-shadow:0 7px 50px rgba(112, 86, 86, 0.25)}
+.examples-item-preview img {display:block; width:100%}
+.examples-item a:hover .examples-item-preview img {opacity:0.5}
+.examples-item-preview::after {content:""; display:block; width:48px; height:48px; position:absolute; right:0; top:0; background:url(../images/zoom-2.png)}
+.examples-item-title {font-size:15px; line-height:20px; letter-spacing:0; font-weight:bold; padding:27px 0 0 0; position:relative; text-transform:uppercase; white-space:normal}
 
-@media screen and (max-width:1439px) {
-    .responses .slick-prev {right:auto; left:-40px; margin-right:0}
-    .responses .slick-next {left:auto; right:-40px; margin-left:0}
-    .responses .slick-prev::before {left:auto; margin-left:0; right:17px}
-    .responses .slick-next::before {left:17px; margin-left:0}
-}
-
-@media screen and (max-width:1199px) {
-    .responses {padding:75px 30px 50px 30px}
-    .responses-item a {line-height:250px; height:250px}
-    .responses .slick-prev {right:auto; left:-95px; margin-right:0; top:140px}
-    .responses .slick-next {left:auto; right:-95px; margin-left:0; top:140px}
-}
-
-@media screen and (max-width:767px) {
-    .responses-item a {line-height:500px; height:500px}
-    .responses .slick-prev {left:-65px; top:266px}
-    .responses .slick-next {right:-65px; top:266px}
-}
+.examples-slider {white-space:nowrap; position:relative; overflow:hidden; margin:0}
+.examples-slider.slick-initialized {overflow:visible}
+.examples-slider .slick-prev,
+.examples-slider .slick-next {display:block; position:absolute; z-index:2; top:50%; width:14px; height:25px; border:none; border-radius:0; background:url(../images/examples-arrows.png); margin:-45px 0 0 0; padding:0; -webkit-appearance:none; cursor:pointer}
+.examples-slider .slick-prev {left:-30px}
+.examples-slider .slick-next {right:-30px; background-position:-14px top}
+.examples-slider .slick-prev:hover {background-position:left -25px}
+.examples-slider .slick-next:hover {background-position:-14px -25px}
 
 .checkout::after {content:""; display:block; clear:both}
 
@@ -790,20 +766,17 @@ input:checked+.bx_filter_param_label.dib .bx_filter_btn_color_icon {opacity:1; -
     .compare-header h1 {float:none}
 }
 
-.compare-header .btn-apply {float:right; width:170px; margin:-4px 0 0 0}
+.compare-header .btn-submit {float:right; width:170px; margin:6px 0 0 0; font-size:12px; height:40px; line-height:40px}
 
 @media screen and (max-width:1199px) {
-    .compare-header .btn-apply {display:none}
-}
-
-@media screen and (max-width:767px) {
-    .compare-header .btn-apply {display:block; width:25px; height:25px; margin:0; position:absolute; right:-25px; bottom:auto; top:3px; background:url(../images/compare-clear-mobile.png); font-size:0; line-height:0; letter-spacing:-1px; overflow:hidden; text-indent:100px}
+    .compare-header .btn-submit {display:none}
 }
 
 .compare-tablet-clear {display:none; margin:65px auto 0 auto; width:170px}
 
 @media screen and (max-width:1199px) {
     .compare-tablet-clear {display:block}
+    .compare-tablet-clear .btn-submit {font-size:12px; height:40px; line-height:40px}
 }
 
 @media screen and (max-width:767px) {
@@ -946,3 +919,38 @@ footer {background:#fff; height:500px; margin:-500px 0 0 0; position:relative; m
 .up-link:hover {border-color:#ea1c23}
 .up-link::before {content:""; display:block; width:15px; height:9px; background:url(../images/up.png); position:absolute; left:50%; top:50%; margin:-5px 0 0 -8px}
 .up-link:hover::before {background-position:-15px top}
+
+.text {background:#fff; padding:40px 45px 30px 45px; margin:-10px 0 0 0}
+h1+.text {margin:35px 0 0 0}
+.principle-header+.text {margin:35px 0 0 0}
+.text-img-right {float:right; clear:right; margin:25px 0 25px 45px}
+.text-img-left {float:left; clear:left; margin:25px 45px 25px 0}
+.text-img-right .examples-item {width:auto; display:block; padding:0}
+
+.clear {clear:both}
+
+.principle-header {margin:35px 0}
+.principle-header::after {content:""; display:block; clear:both}
+.principle-header-side {float:right; background:#fff; width:385px; padding:36px 45px; box-shadow:0 2px 3px rgba(0, 0, 0, 0.07); margin:0 0 0 30px}
+.principle-header h3 {margin-top:0}
+
+.text-props {margin:25px 0; display:table}
+.text-props-row {display:table-row}
+.text-props-name {display:table-cell; vertical-align:top; color:#6a5857; opacity:0.5}
+.text-props-value {display:table-cell; vertical-align:top; color:#757575; padding:0 0 0 20px}
+
+.table-compare th {font-size:12px; line-height:19px; color:#000; font-weight:bold; width:16%; padding-right:20px}
+.table-compare th:first-child {width:20%}
+.table-compare td {padding-right:20px}
+.table-compare td:first-child {font-weight:bold; color:#000}
+.table-compare td.table-compare-bg {background:#e2fcee}
+
+@media screen and (min-width:1200px) {
+    .wrapper table.table-compare {width:100%; margin-left:0; margin-right:0}
+    .wrapper .table-compare thead tr::before {display:none}
+    .wrapper .table-compare thead tr::after {display:none}
+    .wrapper .table-compare tbody tr::before {display:none}
+    .wrapper .table-compare tbody tr::after {display:none}
+    .wrapper .table-compare tbody tr:hover {background:#fafafa}
+    .wrapper .table-compare tbody tr:hover td {border-top-color:#fafafa}
+    .wrapper .table-compare tbody tr:hover+tr td {border-top-color:#fafafa}

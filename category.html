@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="js/jquery-ui-1.11.4.spinner/jquery-ui.css" />
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
         <link rel="stylesheet" href="js/slick/slick.css" />
-        <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
 
         <script src="js/jquery-2.2.4.min.js"></script>
         <script src="js/chosen/chosen.jquery.min.js"></script>
@@ -20,8 +19,6 @@
         <script src="js/jquery-ui-1.11.4.spinner/datepicker-ru.js"></script>
         <script src="js/fancybox/jquery.fancybox.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
-        <script src="js/jscrollpane/jquery.mousewheel.js"></script>
-        <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -148,10 +145,15 @@
                                     </div>
 
                                     <div class="bx_filter_parameters_box active">
-                                        <span class="bx_filter_container_modef"></span>
+                                        <span class="bx_filter_container_modef">
+                                            <div class="bx_filter_popup_result right" id="modef">
+                                                Выбрано: <span id="modef_num">21</span> <span class="arrow"></span>
+                                                <a href="#">Показать</a>
+                                            </div>
+                                        </span>
                                         <div class="bx_filter_parameters_box_title" onclick="smartFilter.hideFilterProps(this)">Кол-во точек разбора воды</div>
                                         <div class="bx_filter_block">
-                                            <div class="bx_filter_parameters_box_container">
+                                            <div class="bx_filter_parameters_box_container bx_filter_count_block">
                                                 <input style="display: none" name="arrFilter_33_3934614246" id="arrFilter_33_3934614246" value="Y" type="checkbox" checked="checked">
                                                 <label for="arrFilter_33_3934614246" data-role="label_arrFilter_33_3934614246" class="bx_filter_param_label dib" title="Кран" onclick="smartFilter.keyup(BX('arrFilter_33_3934614246')); BX.toggleClass(this, 'bx-active');">
                                                     <span class="bx_filter_param_btn bx_color_sl">

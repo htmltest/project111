@@ -76,111 +76,68 @@
                 <!-- container -->
                 <div class="container">
 
-                    <div class="breadcrumbs"><a href="#">TITANOF</a><span></span>Контакты</div>
+                    <div class="breadcrumbs"><a href="#">TITANOF</a><span></span><a href="#">о продукте</a><span></span>Сертификаты</div>
 
                     <!-- content -->
                     <div class="content">
                         <div class="content-wrap">
 
-                            <!-- contacts info -->
-                            <div class="contacts-info">
-                                <h1>Контакты</h1>
-                                <dl>
-                                    <dt>Адрес:</dt>
-                                    <dd>Москва, ул. 1-ый магистральный тупик, д. 10, корп.1,  БЦ "ПРИИСК"</dd>
-                                    <dt>Режим работы:</dt>
-                                    <dd>пн–пт, 10:00 – 22:00</dd>
-                                    <dt>Телефон:</dt>
-                                    <dd>+7 (495) 955-45-20</dd>
-                                    <dt>Электронная почта:</dt>
-                                    <dd><a href="mailto:info@titanof.ru">info@titanof.ru</a></dd>
-                                </dl>
-                            </div>
-                            <!-- contacts info END -->
+                            <!-- text -->
+                            <div class="text">
+                                <h1>Сертификаты</h1>
 
-                            <!-- contacts map -->
-                            <div class="contacts-map">
-                                <div id="map"></div>
-                                <script src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
-                                <script>
-                                    ymaps.ready(init);
+                                <!-- examples -->
+                                <div class="examples">
 
-                                    var myMap;
-                                    var coords = [55.767003, 37.526232];
-
-                                    function init() {
-                                        myMap = new ymaps.Map('map', {
-                                            center: coords,
-                                            zoom: 16,
-                                            controls: []
-                                        });
-
-                                        myMap.controls.add('zoomControl');
-                                        myMap.behaviors.disable('scrollZoom');
-
-                                        var myPlacemark = new ymaps.Placemark(coords, {}, {
-                                            iconLayout: 'default#image',
-                                            iconImageHref: 'images/map-icon.png',
-                                            iconImageSize: [109, 104],
-                                            iconImageOffset: [-55, -104]
-                                        });
-                                        myMap.geoObjects.add(myPlacemark);
-                                        myMap.setCenter(coords);
-                                    }
-                                </script>
-                            </div>
-                            <!-- contacts map END -->
-
-                            <!-- contacts form -->
-                            <div class="contacts-form">
-                                <h3>форма обратной связи</h3>
-                                <form action="#" method="post">
-                                    <div class="form-row">
-                                        <div class="form-label">Ваше Имя <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="name" value="" class="required" /></div>
-                                        </div>
+                                    <!-- examples item -->
+                                    <div class="examples-item">
+                                        <a href="files/sert-01.jpg" title="таможенный союз, декларация о соответсвии" data-fancybox="gallery">
+                                            <div class="examples-item-preview"><img src="files/sert-01.jpg" alt="" /></div>
+                                            <div class="examples-item-title">таможенный союз, декларация о соответсвии</div>
+                                        </a>
                                     </div>
+                                    <!-- examples item END -->
 
-                                    <div class="form-row">
-                                        <div class="form-label">Ваш Email <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="email" value="" class="required email" /></div>
-                                        </div>
+                                    <!-- examples item -->
+                                    <div class="examples-item">
+                                        <a href="files/sert-02.jpg" title="Росаккредитация" data-fancybox="gallery">
+                                            <div class="examples-item-preview"><img src="files/sert-02.jpg" alt="" /></div>
+                                            <div class="examples-item-title">Росаккредитация</div>
+                                        </a>
                                     </div>
+                                    <!-- examples item END -->
 
-                                    <div class="form-row">
-                                        <div class="form-label">Контактный телефон <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
-                                        </div>
+                                    <!-- examples item -->
+                                    <div class="examples-item">
+                                        <a href="files/sert-03.jpg" title="Экспертное заключение (1 стр.)" data-fancybox="gallery">
+                                            <div class="examples-item-preview"><img src="files/sert-03.jpg" alt="" /></div>
+                                            <div class="examples-item-title">Экспертное заключение (1 стр.)</div>
+                                        </a>
                                     </div>
+                                    <!-- examples item END -->
 
-                                    <div class="form-row">
-                                        <div class="form-label">Ваше сообщение <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><textarea name="comment" rows="5" cols="10" class="required"></textarea></div>
-                                        </div>
+                                    <!-- examples item -->
+                                    <div class="examples-item">
+                                        <a href="files/sert-04.jpg" title="Экспертное заключение (2 стр.)" data-fancybox="gallery">
+                                            <div class="examples-item-preview"><img src="files/sert-04.jpg" alt="" /></div>
+                                            <div class="examples-item-title">Экспертное заключение (2 стр.)</div>
+                                        </a>
                                     </div>
+                                    <!-- examples item END -->
 
-                                    <div class="form-row">
-                                        <div class="form-checkbox">
-                                            <label><input type="checkbox" name="private" checked="checked" class="required" /><span></span><strong>Я принимаю условия <a href="#" class="target">политики конфиденциальности</a></strong></label>
-                                        </div>
+                                    <!-- examples item -->
+                                    <div class="examples-item">
+                                        <a href="files/sert-05.jpg" title="Экспертное заключение (3 стр.)" data-fancybox="gallery">
+                                            <div class="examples-item-preview"><img src="files/sert-05.jpg" alt="" /></div>
+                                            <div class="examples-item-title">Экспертное заключение (3 стр.)</div>
+                                        </a>
                                     </div>
+                                    <!-- examples item END -->
 
-                                    <div class="form-row">
-                                        <div class="form-field">
-                                            <div class="form-submit">
-                                                <input type="submit" value="отправить сообщение" class="btn-submit" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">* — обязательные для заполнения поля</div>
-                                </form>
-                            </div>
-                            <!-- contacts form END -->
+                                </div>
+                                <!-- examples END -->
+                           </div>
+                            <!-- text END -->
 
                         </div>
                     </div>

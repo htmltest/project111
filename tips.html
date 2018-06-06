@@ -76,111 +76,38 @@
                 <!-- container -->
                 <div class="container">
 
-                    <div class="breadcrumbs"><a href="#">TITANOF</a><span></span>Контакты</div>
+                    <div class="breadcrumbs"><a href="#">TITANOF</a><span></span><a href="#">о продукте</a><span></span>советы по уходу за фильтром</div>
 
                     <!-- content -->
                     <div class="content">
                         <div class="content-wrap">
 
-                            <!-- contacts info -->
-                            <div class="contacts-info">
-                                <h1>Контакты</h1>
-                                <dl>
-                                    <dt>Адрес:</dt>
-                                    <dd>Москва, ул. 1-ый магистральный тупик, д. 10, корп.1,  БЦ "ПРИИСК"</dd>
-                                    <dt>Режим работы:</dt>
-                                    <dd>пн–пт, 10:00 – 22:00</dd>
-                                    <dt>Телефон:</dt>
-                                    <dd>+7 (495) 955-45-20</dd>
-                                    <dt>Электронная почта:</dt>
-                                    <dd><a href="mailto:info@titanof.ru">info@titanof.ru</a></dd>
-                                </dl>
+                            <!-- text -->
+                            <div class="text">
+                                <h1>Советы по уходу за фильтром</h1>
+                                <p>Фильтроэлементы из пористого титана применяются для очистки холодной и горячей воды, а также для финишной тонкой очистки хозяйственно-бытовых и промышленных стоков от химических соединений (солей тяжелых металлов, нитратов, железа, алюминия, четырех-хлористого углерода, нефтепродуктов, свободного хлора), улучшают органолептические свойства питьевой воды без изменения ее&nbsp;минерального состава, снижают содержание в питьевой воде бактерий кишечных палочек (до требования ГОСТ 2874-82 по&nbsp;микробиологическим показателям воды при содержании БГКП в исходной воде до 1 х 10 в 1 куб.дм.) и уменьшают содержание полифагов.</p>
+                                <p>Предназначен для подготовки воды хозяйственно-питьевого и промышленного назначения до нормативных параметров, очистки промышленных и бытовых сточных вод, а также других целей очистки воды, в том числе и от специфических загрязнений.</p>
+                                <h2>Качество</h2>
+                                <p>Вода после обработки титановым фильтром соответствует санитарным правилам и требованиям СанПиН 2.1.4.1074-01. Гигиенические требования к качеству воды централизованных систем питьевого водоснабжения Контроль качества», № ГН 2.1.5.1315-03 «ПДК химических веществ в воде водных объектов хозяйственно-питьевого и культурно-бытового водопользования»</p>
+                                <div class="cols">
+                                    <div class="col-half">
+                                        <h4>ТИТАНОВЫЙ ФИЛЬТР TITANOF В ПРОМЫШЛЕННОСТИ</h4>
+                                        <a href="https://www.youtube.com/embed/germpsyHcqw" class="main-video-link">
+                                            <img src="files/tips-1.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="col-half">
+                                        <h4>Видео-обращение Анатолия Вассермана</h4>
+                                        <a href="https://www.youtube.com/embed/germpsyHcqw" class="main-video-link">
+                                            <img src="files/tips-2.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <h2>Фильтрующий элемент из пористого титана</h2>
+                                <p>Фильтроэлементы из пористого титана применяются для очистки холодной и горячей воды, а также для финишной тонкой очистки хозяйственно-бытовых и промышленных стоков от химических соединений (солей тяжелых металлов, нитратов, железа, алюминия, четырех- хлористого углерода, нефтепродуктов, свободного хлора), улучшают органолептические свойства питьевой воды без изменения ее минерального состава, снижают содержание в питьевой воде бактерий кишечных палочек (до требования ГОСТ 2874-82 по микробиологическим показателям воды при содержании БГКП в исходной воде до 1 х 10 в 1 куб.дм.) и уменьшают содержание полифагов.</p>
+                                <p>Предназначен для подготовки воды хозяйственно-питьевого и промышленного назначения до нормативных параметров, очистки промышленных и бытовых сточных вод, а также других целей очистки воды, в том числе и от специфических загрязнений.</p>
                             </div>
-                            <!-- contacts info END -->
-
-                            <!-- contacts map -->
-                            <div class="contacts-map">
-                                <div id="map"></div>
-                                <script src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
-                                <script>
-                                    ymaps.ready(init);
-
-                                    var myMap;
-                                    var coords = [55.767003, 37.526232];
-
-                                    function init() {
-                                        myMap = new ymaps.Map('map', {
-                                            center: coords,
-                                            zoom: 16,
-                                            controls: []
-                                        });
-
-                                        myMap.controls.add('zoomControl');
-                                        myMap.behaviors.disable('scrollZoom');
-
-                                        var myPlacemark = new ymaps.Placemark(coords, {}, {
-                                            iconLayout: 'default#image',
-                                            iconImageHref: 'images/map-icon.png',
-                                            iconImageSize: [109, 104],
-                                            iconImageOffset: [-55, -104]
-                                        });
-                                        myMap.geoObjects.add(myPlacemark);
-                                        myMap.setCenter(coords);
-                                    }
-                                </script>
-                            </div>
-                            <!-- contacts map END -->
-
-                            <!-- contacts form -->
-                            <div class="contacts-form">
-                                <h3>форма обратной связи</h3>
-                                <form action="#" method="post">
-                                    <div class="form-row">
-                                        <div class="form-label">Ваше Имя <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="name" value="" class="required" /></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-label">Ваш Email <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="email" value="" class="required email" /></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-label">Контактный телефон <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-label">Ваше сообщение <span>*</span></div>
-                                        <div class="form-field">
-                                            <div class="form-input"><textarea name="comment" rows="5" cols="10" class="required"></textarea></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-checkbox">
-                                            <label><input type="checkbox" name="private" checked="checked" class="required" /><span></span><strong>Я принимаю условия <a href="#" class="target">политики конфиденциальности</a></strong></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-field">
-                                            <div class="form-submit">
-                                                <input type="submit" value="отправить сообщение" class="btn-submit" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">* — обязательные для заполнения поля</div>
-                                </form>
-                            </div>
-                            <!-- contacts form END -->
+                            <!-- text END -->
 
                         </div>
                     </div>
