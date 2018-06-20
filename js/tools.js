@@ -3,6 +3,11 @@ var sliderSpeed  = 500;
 
 $(document).ready(function() {
 
+    $('.menu-mobile-link').click(function(e) {
+        $('html').toggleClass('menu-mobile-open');
+        e.preventDefault();
+    });
+
     $.validator.addMethod('maskPhone',
         function(value, element) {
             return /^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/.test(value);
@@ -264,15 +269,15 @@ $(document).ready(function() {
             {
                 breakpoint: 1199,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
+                    slidesToShow: 2,
+                    slidesToScroll: 2
                 }
             },
             {
                 breakpoint: 767,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
             }
         ]
@@ -319,6 +324,22 @@ $(document).ready(function() {
                 resizeCatalogue($(this));
             });
         });
+    });
+
+    $('.basket-order-link-mobile a').click(function(e) {
+        $('.checkout').addClass('step-2');
+        $('html, body').animate({scrollTop: $('.checkout').offset().top});
+        e.preventDefault();
+    });
+
+    $('.checkout-step-1').click(function(e) {
+        $('.checkout').removeClass('step-2');
+        e.preventDefault();
+    });
+
+    $('.checkout-step-2').click(function(e) {
+        $('.checkout').addClass('step-2');
+        e.preventDefault();
     });
 
     $('body').on('change', '.bx_filter_input_checkbox input', function() {
@@ -376,7 +397,52 @@ $(document).ready(function() {
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
         dots: false,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 1023,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.catalogue-filter-mobile-link').click(function(e) {
+        $('html').toggleClass('filter-open');
+        $(window).scrollTop(0);
+        e.preventDefault();
+    });
+
+    $('.catalogue-header h1').click(function(e) {
+        if ($('.side-menu').length > 0) {
+            $('html').toggleClass('side-menu-open');
+            $(window).scrollTop(0);
+        }
+    });
+
+    $('.side-menu-mobile-link').click(function(e) {
+        $('html').removeClass('side-menu-open');
+        e.preventDefault();
+    });
+
+    $('.catalogue-sort-link').click(function(e) {
+        $('.catalogue-sort').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.catalogue-sort').length == 0) {
+            $('.catalogue-sort').removeClass('open');
+        }
     });
 
 });
