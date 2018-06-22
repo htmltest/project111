@@ -8,6 +8,19 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('nav li').each(function() {
+        if ($(this).find('ul').length > 0) {
+            $(this).addClass('with-submenu');
+        }
+    });
+
+    $('nav ul li.with-submenu > a').click(function(e) {
+        if ($(window).width() < 1200) {
+            $(this).parent().toggleClass('open');
+            e.preventDefault();
+        }
+    });
+
     $.validator.addMethod('maskPhone',
         function(value, element) {
             return /^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/.test(value);
