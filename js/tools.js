@@ -515,6 +515,12 @@ $(window).on('load resize scroll', function() {
     } else {
         $('.up-link').css({'display': 'none'});
     }
+
+    if ($(window).scrollTop() + $(window).height() > $('.bottom').offset().top) {
+        $('.old').hide();
+    } else {
+        $('.old').show();
+    }
 });
 
 function initForm(curForm) {

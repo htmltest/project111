@@ -344,9 +344,10 @@ nav ul li::before {display:none}
 nav ul li a {display:block; color:#fff; text-decoration:none; line-height:49px; transition:all 0.3s; padding:0 20px}
 .nav-fixed nav ul li a {line-height:39px}
 @media screen and (min-width:1200px) {
-    nav ul li.active a,
     nav ul li:hover a {color:#ed1b23; background:#fff}
+    nav ul li:hover a:hover {color:#ed1b23}
 }
+nav ul li.active a {color:#ed1b23; background:#fff}
 nav ul li ul {display:none; position:absolute; left:0; top:100%; background:#ed1b23; margin:0; padding:0; list-style:none; white-space:nowrap; box-shadow:0 7px 50px rgba(112, 112, 86, 0.25)}
 @media screen and (min-width:1200px) {
     nav ul li:hover ul {display:block}
@@ -365,10 +366,13 @@ nav ul li ul li:first-child {margin:0}
     nav ul li:first-child {margin:0}
     nav ul li a {padding:23px 0 26px 30px; color:#fff; margin:0; line-height:25px}
     nav ul li a:hover {color:#fff}
+    nav ul li.active a:hover {color:#ed1b23}
     nav ul li.with-submenu > a {position:relative}
     nav ul li.with-submenu > a::after {content:""; display:block; width:8px; height:13px; background:url(../images/menu-mobile-arrow.png); position:absolute; right:20px; top:29px; transform:rotate(90deg)}
+    nav ul li.with-submenu.active > a::after {background-image:url(../images/menu-mobile-arrow-2.png)}
     nav ul li.with-submenu.open > a::after {transform:rotate(-90deg)}
     nav ul li.with-submenu.open ul {display:block; white-space:normal; position:relative; left:auto; top:auto; background:transparent; box-shadow:none; text-transform:none; padding:0 0 0 30px}
+    nav ul li.with-submenu.open ul li a {background:none; color:#fff}
 }
 
 .breadcrumbs {font-size:11px; text-transform:uppercase; padding:23px 0 0 0; color:#868686}
@@ -1530,3 +1534,6 @@ h1+.text {margin:35px 0 0 0}
     .wrapper .table-compare tbody tr:hover td {border-top-color:#fafafa}
     .wrapper .table-compare tbody tr:hover+tr td {border-top-color:#fafafa}
 }
+
+.old {position:fixed; right:0; bottom:0; left:0; text-align:center; padding:10px; background:rgba(0, 0, 0, .5); color:#fff; z-index:99}
+.old a {color:#fff}
