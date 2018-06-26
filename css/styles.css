@@ -1502,10 +1502,12 @@ h1+.text {margin:35px 0 0 0}
 .principle-header {margin:35px 0}
 .principle-header::after {content:""; display:block; clear:both}
 .principle-header-side {float:right; background:#fff; width:385px; padding:36px 45px; box-shadow:0 2px 3px rgba(0, 0, 0, 0.07); margin:0 0 0 30px}
+.principle-header-text {float:left; max-width:calc(100% - 505px)}
 .principle-header h3 {margin-top:0}
 
 @media screen and (max-width:1199px) {
     .principle-header-side {float:none; width:auto; margin:25px 0}
+    .principle-header-text {float:none; max-width:none}
 }
 
 .text-props {margin:25px 0; display:table}
