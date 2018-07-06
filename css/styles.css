@@ -444,7 +444,7 @@ nav ul li ul li:first-child {margin:0}
     .main-banners-item-06 .main-banners-item-inner {background-size:cover; background-position:center}
 }
 
-.slider {position:relative}
+.slider {position:relative; overflow:hidden}
 .slider::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(219, 196, 196, 0.5); opacity:0; transition:all 0.3s}
 .slider:hover::before {opacity:1}
 .slider-content {font-size:0; line-height:0; letter-spacing:-1px; width:100%; white-space:nowrap}
